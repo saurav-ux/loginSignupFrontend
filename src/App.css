@@ -36,3 +36,28 @@
     transform: rotate(360deg);
   }
 }
+
+.nav{
+    background-color: #00BFBA;
+}
+.navbtn{
+   border: none;
+   border-radius: 5px;
+   background-color: black;
+   color: #00BFBA;
+   font-weight: bold;
+}
+
+
+.table-responsive {
+    overflow-x: auto;
+    margin: 1em;
+    border-radius: 5px;
+  }
+
+  .loading{
+   text-align: center;
+   font-weight: bold;
+  }
+
+  

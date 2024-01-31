@@ -1,23 +1,63 @@
-import logo from './logo.svg';
-import './App.css';
-
+import "./App.css";
+import Register from "./Components/Register";
+import Login from "./Components/Login";
+import TableDetails from "./Components/TableDetails";
+import Navigatio from "./Components/Navigatio";
+import { useEffect } from "react";
+import {
+  BrowserRouter as Router7,
+  Switch,
+  Route,
+  Routes,
+} from "react-router-dom";
 function App() {
+  const token = localStorage.getItem('token');
+  useEffect(()=>{
+
+  },[token])
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+      <Router7>
+        <Routes>
+          <Route
+            path="/register"
+            element={
+              <>
+              <Navigatio/>
+                <Register />
+              </>
+            }
+          />
+          <Route
+            path="/"
+            element={
+              <>
+               <Navigatio/>
+                <Login />
+              </>
+            }
+          />
+           <Route
+            path="/detail"
+            element={
+              <>
+              {token===null || token === undefined  ?
+              <>
+              <Navigatio/>
+              <Login/>
+              </>
+              :
+          
+        <>
+               <Navigatio/>
+                <TableDetails/>
+                </>
+              }
+              </>
+            }
+          />
+        </Routes>
+      </Router7>
     </div>
   );
 }
